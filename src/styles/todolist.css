@@ -1,0 +1,116 @@
+#form {
+    top: 15%;
+    left: 5%;
+    width: 90%;
+}
+
+#form,
+.todo-list {
+    position: absolute;
+}
+
+#form input {
+    width: 100%;
+    padding: 1em;
+    border: none;
+    border-radius: 4px;
+    resize: vertical;
+    background-color: #25273c;
+    color: white;
+}
+
+.todo-list {
+    height: 55%;
+    width: 90%;
+    overflow-x: scroll;
+    left: 5%;
+    top: 25%;
+    color: white;
+    border-radius: .5em;
+    background-color: #25273c;
+}
+
+.todo-list li {
+    list-style: none;
+}
+
+.todo-list li {
+    cursor: grab;
+}
+
+.todo-list li:active {
+    cursor: grabbing;
+}
+
+/* SINGLE TODO */
+.to-do {
+    height: 3rem;
+    padding: 10% 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color:cadetblue; */
+}
+
+.to-do p {
+    font-size: 15px;
+}
+
+.delete-icon{
+    height: .7em;
+    width: .7em;
+}
+
+.no-todos{
+    height: 50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    /* background-color:cadetblue; */
+}
+
+.ul-bottom {
+    position: fixed;
+    top: 75%;
+    border-bottom-left-radius: .5em;
+    border-bottom-right-radius: .5em;
+    width: 90%;
+    z-index: 1;
+    height: 3rem;
+    padding: 2% 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #25273c;
+}
+
+.checked,
+.not-checked {
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding: 1.4%;
+}
+.checked {
+    background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+.not-checked {
+    background: transparent;
+}
+
+.checked img {
+    height: .4em;
+    width: .4em;
+    position: absolute;
+    z-index: 1;
+}
+
+.to-do>* {
+    margin-right: 1em;
+}
