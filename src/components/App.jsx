@@ -29,8 +29,9 @@ function App() {
       completed: false,
     };
     // we save the new array (having the new todo) in the local storage and also update our todos array by addinh the new todo
-    await localforage.setItem("todos", [newTodo, ...todos]);
-    setTodos([newTodo, ...todos]); //updating the todos array in the local storage suffices but if we want the new todo to render immediately it is created then we also update the todos array separately.
+    const updatedTodos = todos?.length ? [newTodo, ...todos] : [newTodo]
+    await localforage.setItem("todos", updatedTodos);
+    setTodos(updatedTodos); //updating the todos array in the local storage suffices but if we want the new todo to render immediately it is created then we also update the todos array separately.
     setValue("");
   };
 

@@ -1,6 +1,6 @@
 .header {
     height: 30%;
-    background-image: url('/home/gitahievans/Desktop/Development/FrontEndMentor/projects/ToDo/todo-application/public/images/bg-mobile-dark.jpg');
+    background-image: url('src/assets/images/bg-mobile-dark.jpg');
     background-position: center;
     background-size: cover;
     position: relative;

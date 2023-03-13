@@ -24,7 +24,7 @@ function TodoList({ todos, setTodos, completeTodos, activeTodos, allTodos }) {
             </li>
           );
         })
-      ) : completeTodos.length > 0 ? (
+      ) : completeTodos && completeTodos.length > 0 ? (
         completeTodos.map((todo) => {
           return (
             <li key={todo.id}>
@@ -32,8 +32,8 @@ function TodoList({ todos, setTodos, completeTodos, activeTodos, allTodos }) {
             </li>
           );
         })
-      ) : 
-      allTodos.length > 0 
+      ) 
+      : allTodos && allTodos.length > 0 
       ? allTodos.map(todo => {
          return (
            <li key={todo.id}>
@@ -41,7 +41,7 @@ function TodoList({ todos, setTodos, completeTodos, activeTodos, allTodos }) {
            </li>
          );
       })
-      :todos.length > 0 ? (
+      :todos && todos.length > 0 ? (
         <ul>
           {todos.map((todo) => {
             return (
