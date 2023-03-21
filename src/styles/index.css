@@ -4,12 +4,13 @@
     box-sizing: border-box;
 }
 
-#app {
-    background: black;
+.app{
+    background: hsl(235, 21%, 11%);
     position: relative;
     height: 100vh;
     font-family: 'Josefin Sans';
 }
+
 
 :root {
     /* primary */

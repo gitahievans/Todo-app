@@ -16,7 +16,7 @@ function TodoList({ todos, setTodos, completeTodos, activeTodos, allTodos }) {
 
   return (
     <div className="todo-list">
-      {activeTodos.length > 0 ? (
+      {activeTodos && activeTodos.length > 0 ? (
         activeTodos.map((todo) => {
           return (
             <li key={todo.id}>
@@ -32,27 +32,28 @@ function TodoList({ todos, setTodos, completeTodos, activeTodos, allTodos }) {
             </li>
           );
         })
-      ) 
-      : allTodos && allTodos.length > 0 
-      ? allTodos.map(todo => {
-         return (
-           <li key={todo.id}>
-             <Todo todo={todo} />
-           </li>
-         );
-      })
-      :todos && todos.length > 0 ? (
+      ) : allTodos && allTodos.length > 0 ? (
+        allTodos.map((todo) => {
+          return (
+            <li key={todo.id}>
+              <Todo todo={todo} />
+            </li>
+          );
+        })
+      ) : todos && todos.length > 0 ? (
         <ul>
           {todos.map((todo) => {
             return (
-              <li key={todo.id} >
+              <li key={todo.id}>
                 <Todo todo={todo} setTodos={setTodos} todos={todos} />
               </li>
             );
           })}
           <div className="ul-bottom">
             <span>{todos.length} Item(s) left</span>
-            <span onClick={clearAllCompleted}style={{cursor: "pointer"}}>Clear completed</span>
+            <span onClick={clearAllCompleted} style={{ cursor: "pointer" }}>
+              Clear completed
+            </span>
           </div>
         </ul>
       ) : (

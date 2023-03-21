@@ -4,7 +4,7 @@ import TodoList from "./TodoList";
 import Header from "./Header";
 import Filter from "./Filter";
 import localforage from "localforage";
-
+import { ThemeContext } from "./ThemeContext";
 // we use localforage to store our todos so that they are available even when the user leaves the browser
 
 function App() {
@@ -13,6 +13,11 @@ function App() {
   const [activeTodos, setActiveTodos] = useState([]);
   const [completeTodos, setCompleteTodos] = useState([]);
   const [allTodos, setAllTodos] = useState([]);
+  const [theme, setTheme] = useState("dark");
+
+  const toggleTheme = () => {
+    return theme === "dark" ? setTheme("light") : setTheme("dark");
+  };
 
   const handleChange = (e) => {
     // trim to ensure one can't input empty strings
@@ -29,7 +34,7 @@ function App() {
       completed: false,
     };
     // we save the new array (having the new todo) in the local storage and also update our todos array by addinh the new todo
-    const updatedTodos = todos?.length ? [newTodo, ...todos] : [newTodo]
+    const updatedTodos = todos?.length ? [newTodo, ...todos] : [newTodo];
     await localforage.setItem("todos", updatedTodos);
     setTodos(updatedTodos); //updating the todos array in the local storage suffices but if we want the new todo to render immediately it is created then we also update the todos array separately.
     setValue("");
@@ -42,19 +47,19 @@ function App() {
     });
   }, []);
 
-  // filters all todos, setting active and complete todos arrays to null
+   // filters all todos, setting active and complete todos arrays to null
   const handleAllTodos = () => {
     setAllTodos(todos);
     setActiveTodos([]);
     setCompleteTodos([]);
   };
-// filter all active todos setting the complete todos array to null
+  // filter all active todos setting the complete todos array to null
   const handleActiveTodos = () => {
     const active = todos.filter((todo) => !todo.completed);
     setActiveTodos(active);
     setCompleteTodos([]);
   };
-// filters all completed todos, setting the active todos array to null
+  // filters all completed todos, setting the active todos array to null
   const handleCompleteTodos = () => {
     const completed = todos.filter((todo) => todo.completed);
     setCompleteTodos(completed);
@@ -62,35 +67,48 @@ function App() {
   };
 
   return (
-    <div id="app">
-      <Header />
-      <form action="submit" onSubmit={handleSubmit} id="form">
-        <input
-          type="text"
-          placeholder="Create a new todo..."
-          value={value}
-          onChange={handleChange}
-          onFocus={(e) => {
-            e.target.value = "";
-          }}
-          required
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div
+        id={theme}
+        className="app"
+        style={{
+          background:
+            theme === "dark" ? "hsl(235, 21%, 11%)" : "hsl(0, 0%, 98%)",
+        }}
+      >
+        <Header />
+        <form action="submit" onSubmit={handleSubmit} id="form">
+          <div class="input-container">
+            {" "}
+            <div class="circle"></div>
+            <input
+              type="text"
+              placeholder="Create a new todo..."
+              value={value}
+              onChange={handleChange}
+              onFocus={(e) => {
+                e.target.value = "";
+              }}
+              required
+            />
+          </div>
+        </form>
+        <TodoList
+          todos={todos}
+          setTodos={setTodos}
+          activeTodos={activeTodos}
+          completeTodos={completeTodos}
+          allTodos={allTodos}
         />
-      </form>
-      <TodoList
-        todos={todos}
-        setTodos={setTodos}
-        activeTodos={activeTodos}
-        completeTodos={completeTodos}
-        allTodos={allTodos}
-      />
-      <Filter
-        todos={todos}
-        setTodos={setTodos}
-        onSetActiveTodos={handleActiveTodos}
-        onSetCompleteTodos={handleCompleteTodos}
-        onSetAllTodos={handleAllTodos}
-      />
-    </div>
+        <Filter
+          todos={todos}
+          setTodos={setTodos}
+          onSetActiveTodos={handleActiveTodos}
+          onSetCompleteTodos={handleCompleteTodos}
+          onSetAllTodos={handleAllTodos}
+        />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 

@@ -1,15 +1,30 @@
 .header {
-    height: 30%;
-    background-image: url('src/assets/images/bg-mobile-dark.jpg');
+    height: 26%;
     background-position: center;
     background-size: cover;
     position: relative;
 }
 
-.header h1{
+#dark .header {
+    background-image: url('src/assets/images/bg-mobile-dark.jpg');
+}
+
+#light .header {
+    background-image: url('src/assets/images/bg-mobile-light.jpg');
+}
+
+.mini {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: absolute;
     top: 17%;
     left: 5%;
     color: white;
     letter-spacing: .5em;
+}
+
+.mini img{
+    cursor: pointer;
 }
