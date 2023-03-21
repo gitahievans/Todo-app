@@ -1,5 +1,5 @@
 #form {
-    top: 14%;
+    top: 15.9%;
     left: 5%;
     width: 90%;
 }
@@ -31,7 +31,7 @@
 
 .input-container input {
     width: 100%;
-    height: 3.5rem;
+    height: 3.2rem;
     padding: 1em 4em;
     border: none;
     border-radius: 7px;
@@ -46,13 +46,12 @@
 }
 
 
-
 .todo-list {
-    height: 46.5%;
+    height: 55%;
     width: 90%;
     overflow-x: scroll;
     left: 5%;
-    top: 22.2%;
+    top: 26%;
     color: white;
     border-radius: .5em;
     background-color: #25273c;
@@ -78,11 +77,11 @@
 /* SINGLE TODO */
 .to-do {
     height: 3rem;
-    padding: 10% 4%;
+    padding: 7% 4%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background-color:cadetblue; */
+    border-bottom: 1px solid hsl(236, 33%, 92%);
 }
 
 .to-do p {
@@ -104,7 +103,7 @@
 
 .ul-bottom {
     position: fixed;
-    top: 62%;
+    top: 72%;
     border-bottom-left-radius: .5em;
     border-bottom-right-radius: .5em;
     width: 90%;
@@ -123,8 +122,8 @@
 
 .checked,
 .not-checked {
-    height: 1.4em;
-    width: 1.4em;
+    height: 1.25em;
+    width: 1.25em;
     border-radius: 50%;
     border: 1px solid white;
     display: flex;

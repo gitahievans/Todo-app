@@ -1,9 +1,9 @@
 .filter-container {
     position: absolute;
-    top: 71%;
+    top: 83%;
     left: 5%;
     width: 90%;
-    height: 3.5rem;
+    height: 3.05rem;
     padding: 2% 20%;
     display: flex;
     align-items: center;
@@ -21,7 +21,7 @@
     cursor: pointer;
 }
 
-.filter-container span:hover{
+.filter-container span:active{
     color: #4879de;
     font-weight:bold;
 }

@@ -1,5 +1,5 @@
 .header {
-    height: 26%;
+    height: 30%;
     background-position: center;
     background-size: cover;
     position: relative;
@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: space-between;
     position: absolute;
-    top: 17%;
+    top: 20.5%;
     left: 5%;
     color: white;
     letter-spacing: .5em;
@@ -27,4 +27,5 @@
 
 .mini img{
     cursor: pointer;
+    height: 1.2rem;
 }

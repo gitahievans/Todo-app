@@ -73,7 +73,6 @@ function Todo({ todo, todos, setTodos }) {
           className="delete-icon"
         />
       </div>
-      <hr />
     </>
   );
 }
