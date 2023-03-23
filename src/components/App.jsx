@@ -21,7 +21,7 @@ function App() {
 
   const handleChange = (e) => {
     // trim to ensure one can't input empty strings
-    setValue(e.target.value.trim());
+    setValue(e.target.value);
   };
 
   const handleSubmit = async (e) => {
