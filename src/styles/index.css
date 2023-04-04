@@ -5,12 +5,14 @@
 }
 
 .app{
-    background: hsl(235, 21%, 11%);
-    position: relative;
+    background-color: hsl(235, 21%, 11%);
     height: 100vh;
+    width: 100%;
     font-family: 'Josefin Sans';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
 
 :root {
     /* primary */

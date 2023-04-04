@@ -1,28 +1,56 @@
 .filter-container {
-    position: absolute;
-    top: 83%;
-    left: 5%;
-    width: 90%;
-    height: 3.05rem;
-    padding: 2% 20%;
-    display: flex;
-    align-items: center;
-    border-radius: .3em;
-    justify-content: space-around;
     background-color: #25273c;
-    color: white;
+    margin-top: 15px;
+    height: 47px;
+    width: 330px;
+    border-radius: 4px;
+    color: hsl(234, 11%, 52%);
 }
 
-#light .filter-container{
-    background: white;
-    color: #25273c;
+.filter {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15px;
+    font-size: 15px;
 }
-.filter-container span{
+.filter span{
+    font-weight: bold;
+}
+
+.filter-container span:hover {
+    color: hsl(236, 33%, 92%);
+}
+#light .filter-container span:hover {
+    color: hsl(235, 19%, 35%);
+}
+#light .filter-container {
+    background: white;
+}
+
+.filter-container span {
     cursor: pointer;
 }
 
-.filter-container span:active{
+.filter-container span:active {
     color: #4879de;
-    font-weight:bold;
+    font-weight: bold;
 }
 
+@media screen and (min-width: 768px) {
+    .filter-container {
+        margin-top: -45px;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        /* background-color: aliceblue; */
+    }
+
+    .filter {
+        width: 50%;
+        column-gap: 30px;
+    }
+}

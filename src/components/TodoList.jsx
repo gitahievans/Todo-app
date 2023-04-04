@@ -14,6 +14,22 @@ function TodoList({ todos, setTodos, completeTodos, activeTodos, allTodos }) {
     console.log(updatedTodos);
   };
 
+  const handleDrag = (e, index) => {
+    e.dataTransfer.setData("index", index);
+  };
+
+  const handleDrop = (e, index) => {
+    const draggedIndex = e.dataTransfer.getData("index");
+    const newTodos = [...todos];
+    const draggedItem = newTodos[draggedIndex];
+
+    newTodos.splice(draggedIndex, 1);
+    newTodos.splice(index, 0, draggedItem);
+
+    setTodos(newTodos);
+    localforage.setItem("todos", newTodos);
+  };
+
   return (
     <div className="todo-list">
       {activeTodos && activeTodos.length > 0 ? (
@@ -41,26 +57,34 @@ function TodoList({ todos, setTodos, completeTodos, activeTodos, allTodos }) {
           );
         })
       ) : todos && todos.length > 0 ? (
-        <ul>
-          {todos.map((todo) => {
+        <ul className="main-ul">
+          {todos.map((todo, index) => {
             return (
-              <li key={todo.id}>
-                <Todo todo={todo} setTodos={setTodos} todos={todos} />
+              <li
+                key={todo.id}
+                draggable={true}
+                onDragStart={(e) => handleDrag(e, index)}
+                onDrop={(e) => handleDrop(e, index)}
+                onDragOver={(e) => e.preventDefault()}
+              >
+                <Todo todo={todo} setTodos={setTodos} todos={todos} />{" "}
+                <div className="divider"></div>
               </li>
             );
           })}
           <div className="ul-bottom">
-            <span>{todos.length} Item(s) left</span>
-            <span onClick={clearAllCompleted} style={{ cursor: "pointer" }}>
-              Clear completed
-            </span>
-          </div>
+        <span>{todos && todos.length} Item(s) left</span>
+        <span onClick={clearAllCompleted} style={{ cursor: "pointer" }}>
+          Clear completed
+        </span>
+      </div>
         </ul>
       ) : (
         <div className="no-todos">
           <p style={{ color: "red" }}>You have no tasks!</p>
         </div>
       )}
+      
     </div>
   );
 }

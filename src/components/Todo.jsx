@@ -59,11 +59,16 @@ function Todo({ todo, todos, setTodos }) {
           </div>
         )}
         {todo.completed ? (
-          <p style={{ textDecoration: "line-through", color: "gray" }}>
-            {todo.body}
-          </p>
+          <div className="todo-body">
+            <p style={{ textDecoration: "line-through", color: "gray" }}>
+              {todo.body}
+            </p>
+          </div>
         ) : (
-          <p>{todo.body}</p>
+          <div className="todo-body">
+            {" "}
+            <p>{todo.body}</p>{" "}
+          </div>
         )}
         <img
           src="src/assets/images/icon-cross.svg"

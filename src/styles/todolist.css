@@ -1,28 +1,26 @@
 #form {
-    top: 15.9%;
-    left: 5%;
-    width: 90%;
-}
-
-#form,
-.todo-list {
-    position: absolute;
+    /* background-color:blanchedalmond; */
+    margin-top: -90px;
+    width: 330px;
+    height: 48px;
+    min-width: 50px;
 }
 
 .input-container {
     position: relative;
+    height: 100%;
 }
 
 .circle {
     position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    height: 1.4em;
-    width: 1.4em;
+    height: 20px;
+    width: 20px;
+    top: 28%;
+    left: 3.5%;
     border-radius: 50%;
     margin-left: .25rem;
     border: 1px solid #25273c;
+    opacity: 0.2;
 }
 
 #dark .circle {
@@ -30,12 +28,11 @@
 }
 
 .input-container input {
+    height: 100%;
     width: 100%;
-    height: 3.2rem;
-    padding: 1em 4em;
+    padding: 0px 50px;
     border: none;
     border-radius: 7px;
-    resize: vertical;
     background-color: #25273c;
     color: white;
 }
@@ -45,16 +42,15 @@
     color: #25273c;
 }
 
-
 .todo-list {
-    height: 55%;
-    width: 90%;
-    overflow-x: scroll;
-    left: 5%;
-    top: 26%;
+    width: 330px;
+    height: 370px;
+    margin-top: 15px;
+    overflow-x: hidden;
     color: white;
-    border-radius: .5em;
+    border-radius: 4px;
     background-color: #25273c;
+    position: relative;
 }
 
 #light .todo-list {
@@ -74,14 +70,32 @@
     cursor: grabbing;
 }
 
+.dktp-span {
+    display: none;
+}
+
 /* SINGLE TODO */
 .to-do {
-    height: 3rem;
-    padding: 7% 4%;
+    height: 50px;
+    padding: 0% 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid hsl(236, 33%, 92%);
+}
+
+.todo-body {
+    width: 75%;
+}
+
+.divider {
+    height: 1px;
+    opacity: 0.1;
+    background-color: white;
+}
+#light .divider {
+    height: 1px;
+    opacity: 0.1;
+    background-color: black;
 }
 
 .to-do p {
@@ -102,18 +116,19 @@
 }
 
 .ul-bottom {
-    position: fixed;
-    top: 72%;
-    border-bottom-left-radius: .5em;
-    border-bottom-right-radius: .5em;
-    width: 90%;
+    position: sticky;
+    bottom: 0px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 330px;
     z-index: 1;
-    height: 4rem;
-    padding: 2% 4%;
+    height: 52px;
+    padding: 2px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #25273c;
+    color: hsl(234, 11%, 52%);
 }
 
 #light .ul-bottom {
@@ -122,8 +137,8 @@
 
 .checked,
 .not-checked {
-    height: 1.25em;
-    width: 1.25em;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
     border: 1px solid white;
     display: flex;
@@ -140,10 +155,21 @@
 
 .not-checked {
     background: transparent;
+    opacity: .2;
+}
+
+.not-checked:hover {
+    border-color: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    opacity: 1;
 }
 
 #light .not-checked {
-    border: 2px solid hsl(236, 33%, 92%)
+    opacity: 1;
+    border: 1px solid hsl(236, 33%, 92%);
+}
+
+#light .not-checked:hover {
+    border-color: black;
 }
 
 .checked img {
@@ -155,4 +181,88 @@
 
 .to-do>* {
     margin-right: 1em;
+}
+
+.dragging {
+    opacity: 0.7;
+    transform: rotate(5deg) scale(1.03);
+    transition: all 0.2s ease-out;
+    z-index: 10;
+}
+
+.over {
+    border: 2px solid #078fab;
+    border-radius: 2px;
+    transform: rotate(0deg)
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .todo-list,
+    .mini,
+    #form,
+    .ul-bottom,
+    .filter-container {
+        width: 650px;
+    }
+
+    #form {
+        margin-top: -118px;
+    }
+
+    .todo-list {
+        margin-top: 25px;
+        height: 500px;
+
+    }
+
+    .todo-body {
+        width: 85%;
+    }
+
+    .ul-bottom {
+        display: none;
+    }
+
+    .dktp-span {
+        display: block;
+    }
+
+    .to-do {
+        height: 70px;
+    }
+
+    .input-container input {
+        padding: 0px 75px;
+    }
+
+    .circle {
+        left: 30px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+
+    .checked,
+    .not-checked {
+        height: 25px;
+        width: 25px;
+    }
+
+    .delete-icon {
+        height: 20px;
+        width: 20px;
+        opacity: .3;
+    }
+
+    .to-do p {
+        font-size: 18px;
+    }
+
+    .circle {
+        height: 25px;
+        width: 25px;
+    }
+
 }
