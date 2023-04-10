@@ -4,21 +4,13 @@ import React from "react";
 function Filter({
   todos,
   setTodos,
+  activeTodos,
+  completeTodos,
   onSetCompleteTodos,
   onSetActiveTodos,
   onSetAllTodos,
+  clickedState
 }) {
-  const showAllTodos = () => {
-    onSetAllTodos();
-  };
-
-  const showActiveTodos = () => {
-    onSetActiveTodos();
-  };
-  const showCompletedTodos = () => {
-    onSetCompleteTodos();
-  };
-
   const clearAllCompleted = () => {
     const updatedTodos = todos.filter((todo) => todo.completed === false);
     setTodos(updatedTodos);
@@ -34,9 +26,24 @@ function Filter({
       {" "}
       <span className="dktp-span">{todos && todos.length} Item(s) left</span>
       <section className="filter">
-        <span onClick={showAllTodos}>All</span>
-        <span onClick={showActiveTodos}>Active</span>
-        <span onClick={showCompletedTodos}>Completed</span>
+        <span
+          onClick={onSetAllTodos}
+          className={clickedState === "all" ? "all-todos" : null}
+        >
+          All
+        </span>
+        <span
+          onClick={onSetActiveTodos}
+          className={activeTodos.length && clickedState === "active" ? "active-todos" : null}
+        >
+          Active
+        </span>
+        <span
+          onClick={onSetCompleteTodos}
+          className={completeTodos.length && clickedState === "complete" ? "complete-todos" : null}
+        >
+          Completed
+        </span>
       </section>
       <span
         onClick={clearAllCompleted}

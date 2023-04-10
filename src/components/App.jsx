@@ -12,18 +12,16 @@ function App() {
   const [value, setValue] = useState("");
   const [activeTodos, setActiveTodos] = useState([]);
   const [completeTodos, setCompleteTodos] = useState([]);
-  const [allTodos, setAllTodos] = useState([]);
   const [theme, setTheme] = useState("dark");
-
+  const [clickedState, setClickedState] = useState("all")
+  
   const toggleTheme = () => {
     return theme === "dark" ? setTheme("light") : setTheme("dark");
   };
 
   const handleChange = (e) => {
-    // trim to ensure one can't input empty strings
     setValue(e.target.value);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     // this object sets the properties of our todo.
@@ -47,23 +45,26 @@ function App() {
     });
   }, []);
 
-   // filters all todos, setting active and complete todos arrays to null
+  // filters all todos, setting active and complete todos arrays to null
   const handleAllTodos = () => {
-    setAllTodos(todos);
+    setTodos(todos);
     setActiveTodos([]);
     setCompleteTodos([]);
+    setClickedState("all")
   };
   // filter all active todos setting the complete todos array to null
   const handleActiveTodos = () => {
     const active = todos.filter((todo) => !todo.completed);
     setActiveTodos(active);
     setCompleteTodos([]);
+    setClickedState("active");
   };
   // filters all completed todos, setting the active todos array to null
   const handleCompleteTodos = () => {
     const completed = todos.filter((todo) => todo.completed);
     setCompleteTodos(completed);
     setActiveTodos([]);
+    setClickedState("complete");
   };
 
   return (
@@ -78,9 +79,9 @@ function App() {
       >
         <Header />
         <form action="submit" onSubmit={handleSubmit} id="form">
-          <div class="input-container">
+          <div className="input-container">
             {" "}
-            <div class="circle"></div>
+            <div className="circle"></div>
             <input
               type="text"
               placeholder="Create a new todo..."
@@ -98,14 +99,16 @@ function App() {
           setTodos={setTodos}
           activeTodos={activeTodos}
           completeTodos={completeTodos}
-          allTodos={allTodos}
         />
         <Filter
           todos={todos}
           setTodos={setTodos}
+          activeTodos={activeTodos}
+          completeTodos={completeTodos}
           onSetActiveTodos={handleActiveTodos}
           onSetCompleteTodos={handleCompleteTodos}
           onSetAllTodos={handleAllTodos}
+          clickedState={clickedState}
         />
       </div>
     </ThemeContext.Provider>

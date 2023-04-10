@@ -37,6 +37,14 @@
     color: white;
 }
 
+.short-todo {
+    color: rgb(255, 0, 0);
+}
+
+#light .short-todo {
+    font-weight: bold;
+}
+
 #light #form input {
     background-color: white;
     color: #25273c;
@@ -92,6 +100,7 @@
     opacity: 0.1;
     background-color: white;
 }
+
 #light .divider {
     height: 1px;
     opacity: 0.1;
@@ -102,9 +111,15 @@
     font-size: 15px;
 }
 
-.delete-icon {
+.show-delete-icon {
     height: .7em;
     width: .7em;
+}
+
+.hide-delete-icon {
+    height: .7em;
+    width: .7em;
+    visibility: visible;
 }
 
 .no-todos {
@@ -240,6 +255,7 @@
     .circle {
         left: 30px;
     }
+
 }
 
 @media screen and (min-width: 1000px) {
@@ -250,10 +266,14 @@
         width: 25px;
     }
 
-    .delete-icon {
+    .show-delete-icon {
         height: 20px;
         width: 20px;
-        opacity: .3;
+        opacity: 1;
+    }
+
+    .hide-delete-icon {
+        opacity: 0;
     }
 
     .to-do p {

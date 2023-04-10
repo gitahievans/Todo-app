@@ -2,7 +2,13 @@ import React from "react";
 import Todo from "./Todo";
 import localforage from "localforage";
 
-function TodoList({ todos, setTodos, completeTodos, activeTodos, allTodos }) {
+function TodoList({
+  todos,
+  setTodos,
+  completeTodos,
+  activeTodos,
+  allTodos,
+}) {
   // to clear completed todos, we filter them out form the todos array and remain with uncompleted ones which we use to update our todos array
   const clearAllCompleted = () => {
     const updatedTodos = todos.filter((todo) => todo.completed === false);
@@ -67,24 +73,27 @@ function TodoList({ todos, setTodos, completeTodos, activeTodos, allTodos }) {
                 onDrop={(e) => handleDrop(e, index)}
                 onDragOver={(e) => e.preventDefault()}
               >
-                <Todo todo={todo} setTodos={setTodos} todos={todos} />{" "}
+                <Todo
+                  todo={todo}
+                  setTodos={setTodos}
+                  todos={todos}
+                />{" "}
                 <div className="divider"></div>
               </li>
             );
           })}
           <div className="ul-bottom">
-        <span>{todos && todos.length} Item(s) left</span>
-        <span onClick={clearAllCompleted} style={{ cursor: "pointer" }}>
-          Clear completed
-        </span>
-      </div>
+            <span>{todos && todos.length} Item(s) left</span>
+            <span onClick={clearAllCompleted} style={{ cursor: "pointer" }}>
+              Clear completed
+            </span>
+          </div>
         </ul>
       ) : (
         <div className="no-todos">
           <p style={{ color: "red" }}>You have no tasks!</p>
         </div>
       )}
-      
     </div>
   );
 }
