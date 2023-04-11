@@ -58,7 +58,7 @@ function Todo({ todo, todos, setTodos }) {
             className="checked"
             onClick={() => handleCompletedClick(todo.id)}
           >
-            <img src="public/assets/icon-check.svg" alt="" />
+            <img src="./icon-check.svg" alt="" />
           </div>
         ) : (
           <div
@@ -66,7 +66,7 @@ function Todo({ todo, todos, setTodos }) {
             onClick={() => handleNotCompletedClick(todo.id)}
           >
             <img
-              src="public/assets/icon-check.svg"
+              src="./icon-check.svg"
               alt=""
               style={{ display: "none" }}
             />
@@ -97,7 +97,7 @@ function Todo({ todo, todos, setTodos }) {
           </div>
         )}
         <img
-          src="/assets/icon-cross.svg"
+          src="./icon-cross.svg"
           alt="delete"
           onClick={handleDeleteClick}
           style={{
