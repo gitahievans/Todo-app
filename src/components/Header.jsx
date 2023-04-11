@@ -6,12 +6,12 @@ function Header() {
   return (
     <div className="header">
       <div className="mini">
-          <h1>TODO</h1>
+        <h1>TODO</h1>
         <img
           src={
             themeContext.theme === "dark"
-              ? "images/icon-sun.svg"
-              : "images/icon-moon.svg"
+              ? "src/images/icon-sun.svg"
+              : "./src/images/icon-moon.svg"
           }
           alt=""
           onClick={themeContext.toggleTheme}
