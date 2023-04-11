@@ -6,11 +6,11 @@
 }
 
 #dark .header {
-    background-image: url('src/images/bg-mobile-dark.jpg');
+    background-image: url('/assets/bg-mobile-dark.jpg');
 }
 
 #light .header {
-    background-image: url('src/images/bg-mobile-light.jpg');
+    background-image: url('/assets/bg-mobile-light.jpg');
 }
 
 .mini {
@@ -36,10 +36,10 @@
     }
 
     #dark .header {
-        background-image: url('src/images/bg-desktop-dark.jpg');
+        background-image: url('/assets/bg-desktop-dark.jpg');
     }
 
     #light .header {
-        background-image: url('src/images/bg-desktop-light.jpg');
+        background-image: url('/assets/bg-desktop-light.jpg');
     }
 }

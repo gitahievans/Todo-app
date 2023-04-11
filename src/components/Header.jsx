@@ -10,8 +10,8 @@ function Header() {
         <img
           src={
             themeContext.theme === "dark"
-              ? "src/images/icon-sun.svg"
-              : "./src/images/icon-moon.svg"
+              ? "/assets/icon-sun.svg"
+              : "/assets/icon-moon.svg"
           }
           alt=""
           onClick={themeContext.toggleTheme}
