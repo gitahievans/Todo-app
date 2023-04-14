@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
+import sun from "../assets/sun.svg"
+import moon from "../assets/moon.svg"
 
 function Header() {
   const themeContext = useContext(ThemeContext);
@@ -8,12 +10,8 @@ function Header() {
       <div className="mini">
         <h1>TODO</h1>
         <img
-          src={
-            themeContext.theme === "dark"
-              ? "./src/assets/icon-sun.svg"
-              : "./src/assets/icon-moon.svg"
-          }
-          alt=""
+          src={themeContext.theme === "dark" ? sun  : moon}
+          alt="d/l"
           onClick={themeContext.toggleTheme}
         />
       </div>

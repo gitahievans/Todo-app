@@ -1,6 +1,7 @@
 import localforage from "localforage";
 import React, { useState } from "react";
 
+
 function Todo({ todo, todos, setTodos }) {
   const [todoHover, setTodoHover] = useState(false)
   // we update all our actions in our local storage to ensure they reflect even when the user refreshes the browser
