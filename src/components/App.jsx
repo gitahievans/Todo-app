@@ -14,6 +14,7 @@ function App() {
   const [completeTodos, setCompleteTodos] = useState([]);
   const [theme, setTheme] = useState("dark");
   const [clickedState, setClickedState] = useState("all")
+  const [isDktp, setIsDktp] = useState(false);
   
   const toggleTheme = () => {
     return theme === "dark" ? setTheme("light") : setTheme("dark");
@@ -40,10 +41,19 @@ function App() {
 
   // once the app is mounted, the todos are gotten from the local storage and rendered and used to update the todos array.
   useEffect(() => {
-    localforage.getItem("todos").then((res) => {
+        localforage.getItem("todos").then((res) => {
       setTodos(res);
     });
   }, []);
+
+  // useEffect(() => {
+  //   const deviceSize = () => {
+  //     setIsDktp(window.innerWidth >= 1024);
+  //   };
+  //   window.addEventListener("resize", deviceSize);
+  //   deviceSize();
+  //   return () => window.removeEventListener("resize", deviceSize);
+  // }, [])
 
   // filters all todos, setting active and complete todos arrays to null
   const handleAllTodos = () => {
@@ -110,6 +120,7 @@ function App() {
           onSetAllTodos={handleAllTodos}
           clickedState={clickedState}
         />
+        {/* {isDktp ? <p className="drag-drop">Drag and Drop</p> : null} */}
       </div>
     </ThemeContext.Provider>
   );
