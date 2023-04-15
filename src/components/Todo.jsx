@@ -1,6 +1,7 @@
 import localforage from "localforage";
 import React, { useState } from "react";
-
+import cross from "../assets/cross.svg"
+import check from '../assets/check.svg'
 
 function Todo({ todo, todos, setTodos }) {
   const [todoHover, setTodoHover] = useState(false)
@@ -59,18 +60,14 @@ function Todo({ todo, todos, setTodos }) {
             className="checked"
             onClick={() => handleCompletedClick(todo.id)}
           >
-            <img src="../src/assets/icon-check.svg" alt="" />
+            <img src={check} alt="" />
           </div>
         ) : (
           <div
             className="not-checked"
             onClick={() => handleNotCompletedClick(todo.id)}
           >
-            <img
-              src="../src/assets/icon-check.svg"
-              alt=""
-              style={{ display: "none" }}
-            />
+            <img src={check} alt="" style={{ display: "none" }} />
           </div>
         )}
         {todo.completed ? (
@@ -98,7 +95,7 @@ function Todo({ todo, todos, setTodos }) {
           </div>
         )}
         <img
-          src="../src/assets/icon-cross.svg"
+          src={cross}
           alt="delete"
           onClick={handleDeleteClick}
           style={{
