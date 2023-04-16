@@ -2,6 +2,8 @@ import localforage from "localforage";
 import React, { useState } from "react";
 import cross from "../assets/cross.svg"
 import check from '../assets/check.svg'
+import complete from '../assets/complete.mp3'
+
 
 function Todo({ todo, todos, setTodos }) {
   const [todoHover, setTodoHover] = useState(false)
@@ -14,6 +16,11 @@ function Todo({ todo, todos, setTodos }) {
     })
   };
 
+  const todoDoneAudio = () => {
+    const audio = new Audio(complete);
+    audio.play();
+  }
+
   const handleCompletedClick = (id) => {
     const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
@@ -25,6 +32,7 @@ function Todo({ todo, todos, setTodos }) {
     localforage.removeItem("todos").then(() => {
       localforage.setItem("todos", updatedTodos);
     });
+      
   };
   
   const handleNotCompletedClick = (id) => {
@@ -38,6 +46,7 @@ function Todo({ todo, todos, setTodos }) {
    localforage.removeItem("todos").then(() => {
      localforage.setItem("todos", updatedTodos);
    });
+   todoDoneAudio();
   }
 
   const handleMouseEnter = () => {
