@@ -46,14 +46,14 @@ function App() {
     });
   }, []);
 
-  // useEffect(() => {
-  //   const deviceSize = () => {
-  //     setIsDktp(window.innerWidth >= 1024);
-  //   };
-  //   window.addEventListener("resize", deviceSize);
-  //   deviceSize();
-  //   return () => window.removeEventListener("resize", deviceSize);
-  // }, [])
+  useEffect(() => {
+    const deviceSize = () => {
+      setIsDktp(window.innerWidth >= 1000);
+    };
+    window.addEventListener("resize", deviceSize);
+    deviceSize();
+    return () => window.removeEventListener("resize", deviceSize);
+  }, [])
 
   // filters all todos, setting active and complete todos arrays to null
   const handleAllTodos = () => {
@@ -120,7 +120,7 @@ function App() {
           onSetAllTodos={handleAllTodos}
           clickedState={clickedState}
         />
-        {/* {isDktp ? <p className="drag-drop">Drag and Drop</p> : null} */}
+        {isDktp ? <p className="drag-drop">Drag and drop to reorder list</p> : null}
       </div>
     </ThemeContext.Provider>
   );

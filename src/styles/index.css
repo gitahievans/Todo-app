@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-/* .drag-drop{
-    color: aliceblue;
-    
-} */
+.drag-drop{
+    margin-top: 3%;
+    color: hsl(234, 11%, 52%)
+}

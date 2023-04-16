@@ -1,3 +1,30 @@
+:root {
+    /* COLORS */
+    /* PRIMARY */
+    --Bright-Blue: hsl(220, 98%, 61%);
+    --Check-Background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+    /* NEUTRAL */
+    /* LIGHT THEME */
+    --Light-Theme-Body-Background: hsl(0, 0%, 98%);
+    --Light-Theme-Block-Background: hsl(0, 0%, 100%);
+    --Light-Theme-Todo-Text-Color: hsl(0, 0%, 0%);
+
+    --Light-Theme-Body-Ba: hsl(236, 33%, 92%);
+    --Light-Theme-T: hsl(233, 11%, 84%);
+    --Light-Theme-Dark-Grayish-Blue: hsl(236, 9%, 61%);
+    --Light-Theme-Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+
+    /* DARK THEME */
+    --Dark-Theme-Body-Background: hsl(235, 21%, 11%);
+    --Dark-Theme-Block-Background: hsl(235, 24%, 19%);
+    --Dark-Theme-Todo-Text-Color: hsl(234, 39%, 85%);
+    --Dark-Theme-Todo-Text-Hover-Color: hsl(236, 33%, 92%);
+    --Dark-Theme-Dark-Grayish-Blue: hsl(234, 11%, 52%);
+    --Dark-Theme-Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+    --Dark-Theme-Very-Darkest-Grayish-Blue: hsl(237, 14%, 26%);
+}
+
 #form {
     /* background-color:blanchedalmond; */
     margin-top: -90px;
@@ -13,6 +40,7 @@
 
 .circle {
     position: absolute;
+    overflow: hidden;
     height: 20px;
     width: 20px;
     top: 28%;
@@ -150,49 +178,50 @@
     background-color: white;
 }
 
-.checked,
+
 .not-checked {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    border: 1px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid ;
+    border-color: hsl(237, 14%, 26%);
+    border-style: solid;
     cursor: pointer;
-    position: relative;
-    padding: 1.4%;
+    overflow: hidden;
 }
-
+#light .not-checked{
+    border-color: hsl(236, 33%, 92%);
+}
 .checked {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-style: solid;
+    cursor: pointer;
+    overflow: hidden;
     background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
-.not-checked {
-    background: transparent;
-    opacity: .2;
-}
-
 .not-checked:hover {
-    border-color: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-    opacity: 1;
-}
-
-#light .not-checked {
-    opacity: 1;
-    border: 1px solid hsl(236, 33%, 92%);
+    border-color: transparent;
+    border-width: 2px;
+    background: linear-gradient(var(--Dark-Theme-Block-Background) 0 0) padding-box, var(--Check-Background) border-box;
 }
 
 #light .not-checked:hover {
-    border-color: black;
+    border-color: transparent;
+    border-width: 2px;
+        background: linear-gradient(white 0 0) padding-box,
+            var(--Check-Background) border-box;
 }
 
-.checked img {
-    height: .4em;
-    width: .4em;
-    position: absolute;
-    z-index: 1;
-}
 
 .to-do>* {
     margin-right: 1em;
