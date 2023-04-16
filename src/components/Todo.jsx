@@ -2,8 +2,8 @@ import localforage from "localforage";
 import React, { useState } from "react";
 import cross from "../assets/cross.svg"
 import check from '../assets/check.svg'
-import complete from '../assets/complete.mp3'
-import delete_tone from "../assets/delete_tone.mp3";
+// import complete from '../assets/complete.mp3'
+// import delete_tone from "../assets/delete_tone.mp3";
 
 function Todo({ todo, todos, setTodos }) {
   const [todoHover, setTodoHover] = useState(false)
@@ -18,12 +18,12 @@ function Todo({ todo, todos, setTodos }) {
   };
 
   const deleteTodoAudio = () => {
-    const audio = new Audio(delete_tone);
+    const audio = new Audio("../assets/delete_tone.mp3");
     audio.play();
   }
 
   const todoDoneAudio = () => {
-    const audio = new Audio(complete);
+    const audio = new Audio("../assets/complete.mp3");
     audio.play();
   }
 
