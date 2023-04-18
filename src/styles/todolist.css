@@ -139,6 +139,16 @@
     font-size: 15px;
 }
 
+.todo-edit {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    background-color: #25273c;
+    color: white;
+}
+
 .show-delete-icon {
     height: .7em;
     width: .7em;
@@ -149,6 +159,8 @@
     width: .7em;
     visibility: visible;
 }
+
+
 
 .no-todos {
     height: 50%;
@@ -186,15 +198,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid ;
+    border: 1px solid;
     border-color: hsl(237, 14%, 26%);
     border-style: solid;
     cursor: pointer;
     overflow: hidden;
 }
-#light .not-checked{
+
+#light .not-checked {
     border-color: hsl(236, 33%, 92%);
 }
+
 .checked {
     height: 20px;
     width: 20px;
@@ -218,8 +232,8 @@
 #light .not-checked:hover {
     border-color: transparent;
     border-width: 2px;
-        background: linear-gradient(white 0 0) padding-box,
-            var(--Check-Background) border-box;
+    background: linear-gradient(white 0 0) padding-box,
+        var(--Check-Background) border-box;
 }
 
 

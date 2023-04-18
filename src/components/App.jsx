@@ -122,7 +122,7 @@ function App() {
         />
         <div className="drag-drop">
           {isDktp ? <p>Drag and drop to reorder list</p> : null}
-          <p>Double on todo text to edit</p>
+          <p>Double tap on todo text to edit</p>
         </div>
       </div>
     </ThemeContext.Provider>

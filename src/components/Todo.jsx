@@ -127,6 +127,7 @@ function Todo({ todo, todos, setTodos }) {
             {isEditing ? (
               <input
                 type="text"
+                className="todo-edit"
                 value={editedTodoBody}
                 onChange={handleInputChange}
                 onBlur={handleInputBlur}
