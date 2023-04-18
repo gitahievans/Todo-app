@@ -80,7 +80,6 @@ function Todo({ todo, todos, setTodos }) {
 }
 
   const handleInputBlur = () => {
-    console.log({...todo})
     const editedTodo = { ...todo, body: editedTodoBody };
     const editedTodos = todos.map((t) => t.id === todo.id ? editedTodo : t) 
     setTodos(editedTodos);

@@ -15,6 +15,17 @@
 }
 
 .drag-drop{
-    margin-top: 3%;
-    color: hsl(234, 11%, 52%)
+    margin-top: 5%;
+    color: hsl(234, 11%, 52%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+}
+
+@media screen and (min-width: 768px) {
+    .drag-drop {
+        margin-top: 3%;
+    }
 }

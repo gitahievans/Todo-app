@@ -13,9 +13,9 @@ function App() {
   const [activeTodos, setActiveTodos] = useState([]);
   const [completeTodos, setCompleteTodos] = useState([]);
   const [theme, setTheme] = useState("dark");
-  const [clickedState, setClickedState] = useState("all")
+  const [clickedState, setClickedState] = useState("all");
   const [isDktp, setIsDktp] = useState(false);
-  
+
   const toggleTheme = () => {
     return theme === "dark" ? setTheme("light") : setTheme("dark");
   };
@@ -41,7 +41,7 @@ function App() {
 
   // once the app is mounted, the todos are gotten from the local storage and rendered and used to update the todos array.
   useEffect(() => {
-        localforage.getItem("todos").then((res) => {
+    localforage.getItem("todos").then((res) => {
       setTodos(res);
     });
   }, []);
@@ -53,14 +53,14 @@ function App() {
     window.addEventListener("resize", deviceSize);
     deviceSize();
     return () => window.removeEventListener("resize", deviceSize);
-  }, [])
+  }, []);
 
   // filters all todos, setting active and complete todos arrays to null
   const handleAllTodos = () => {
     setTodos(todos);
     setActiveTodos([]);
     setCompleteTodos([]);
-    setClickedState("all")
+    setClickedState("all");
   };
   // filter all active todos setting the complete todos array to null
   const handleActiveTodos = () => {
@@ -120,7 +120,10 @@ function App() {
           onSetAllTodos={handleAllTodos}
           clickedState={clickedState}
         />
-        {isDktp ? <p className="drag-drop">Drag and drop to reorder list</p> : null}
+        <div className="drag-drop">
+          {isDktp ? <p>Drag and drop to reorder list</p> : null}
+          <p>Double on todo text to edit</p>
+        </div>
       </div>
     </ThemeContext.Provider>
   );
