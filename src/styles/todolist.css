@@ -149,18 +149,14 @@
     color: white;
 }
 
-.show-delete-icon {
-    height: .7em;
-    width: .7em;
+.delete-cont{
+    height: 50%;
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #078fab; */
 }
-
-.hide-delete-icon {
-    height: .7em;
-    width: .7em;
-    visibility: visible;
-}
-
-
 
 .no-todos {
     height: 50%;
@@ -302,7 +298,6 @@
 }
 
 @media screen and (min-width: 1000px) {
-
     .checked,
     .not-checked {
         height: 25px;
@@ -310,9 +305,8 @@
     }
 
     .show-delete-icon {
-        height: 20px;
-        width: 20px;
-        opacity: 1;
+        height: 18px;
+        width:18px;
     }
 
     .hide-delete-icon {

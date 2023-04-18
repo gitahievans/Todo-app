@@ -74,14 +74,14 @@ function Todo({ todo, todos, setTodos }) {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      handleInputBlur()
-  }
-}
+    if (e.key === "Enter") {
+      handleInputBlur();
+    }
+  };
 
   const handleInputBlur = () => {
     const editedTodo = { ...todo, body: editedTodoBody };
-    const editedTodos = todos.map((t) => t.id === todo.id ? editedTodo : t) 
+    const editedTodos = todos.map((t) => (t.id === todo.id ? editedTodo : t));
     setTodos(editedTodos);
     setIsEditing(false);
     localforage.removeItem("todos").then(() => {
@@ -135,27 +135,22 @@ function Todo({ todo, todos, setTodos }) {
                 autoFocus
               />
             ) : (
-              <p
-                style={{
-                  transform: todoHover ? "translateX(5px)" : "translateX(0)",
-                  transition: "transform 0.3s ease-in-out",
-                }}
-                onDoubleClick={handleDoubleClick}
-              >
-                {todo.body}
-              </p>
+              <p onDoubleClick={handleDoubleClick}>{todo.body}</p>
             )}
           </div>
         )}
-        <img
-          src={cross}
-          alt="delete"
-          onClick={handleDeleteClick}
-          style={{
-            cursor: "pointer",
-          }}
-          className={todoHover ? "show-delete-icon" : "hide-delete-icon"}
-        />
+        <div className="delete-cont">
+          {" "}
+          <img
+            src={cross}
+            alt="delete"
+            onClick={handleDeleteClick}
+            style={{
+              cursor: "pointer",
+            }}
+            className={todoHover ? "show-delete-icon" : "hide-delete-icon"}
+          />
+        </div>
       </div>
     </>
   );
