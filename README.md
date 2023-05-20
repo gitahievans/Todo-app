@@ -14,15 +14,15 @@ Responsive design for optimal usage on various devices.
 Clone the repository:
 <pre>git clone git@github.com:gitahievans/Todo-app.git</pre>
 
-Navigate to the project directory:
+### Navigate to the project directory:
 <pre>cd todo-app</pre>
 
-Install dependencies using npm or yarn:
+### Install dependencies using npm or yarn:
 <pre>npm install</pre>
 or
 <pre>yarn install</pre>
 
-Start the development server:
+### Start the development server:
 <pre>npm run dev</pre>
 or
 <pre>yarn dev</pre>
